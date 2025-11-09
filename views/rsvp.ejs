@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/rsvp.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <span>SampadAI</span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="title">Boxed with love</h1>
+    <p class="subtitle">Event RSVP</p>
+  </section>
+
+  <!-- Bento Grid -->
+  <section class="bento-grid">
+    <div class="grid-item card-red">
+      <div class="icon-badge"></div>
+      <h2>JOIN<br>US FOR<br>AN EVENT!</h2>
+    </div>
+
+    <div class="grid-item card-image">
+      <img src="/assets/images/logo.png" alt="SampadAI">
+    </div>
+
+    <div class="grid-item card-image">
+      <img src="/assets/images/logo_1.png" alt="SampadAI">
+    </div>
+
+    <div class="grid-item card-image">
+      <img src="/assets/images/logo_2.png" alt="SampadAI">
+    </div>
+
+    <div class="grid-item card-image">
+      <img src="/assets/images/logo_3.png" alt="SampadAI">
+    </div>
+
+    <div class="grid-item card-image">
+      <img src="/assets/images/logo.png" alt="SampadAI">
+    </div>
+
+    <div class="grid-item card-green">
+      <div class="icon-badge"></div>
+      <p>Join us for an exciting event!</p>
+    </div>
+
+    <div class="grid-item card-yellow">
+      <div class="toast-icon"></div>
+    </div>
+  </section>
+
+  <!-- Date Announcement -->
+  <section class="date-section">
+    <div class="date-badge"></div>
+    <h2 class="date"><%= date %></h2>
+  </section>
+
+  <!-- Event Details -->
+  <section class="event-details">
+    <div class="event-card">
+      <div class="event-icon"></div>
+      <h3><%= eventTime %></h3>
+      <p>Place and time here!</p>
+      <a href="#" class="map-link">go to Google maps</a>
+    </div>
+  </section>
+
+  <!-- Photo Upload -->
+  <section class="photo-upload">
+    <div class="upload-card">
+      <p>Join our community</p>
+    </div>
+  </section>
+
+  <!-- RSVP Form -->
+  <section class="rsvp-section">
+    <div class="rsvp-card">
+      <p class="rsvp-intro">You're invited to join us for an amazing event!</p>
+
+      <form id="rsvpForm" class="rsvp-form">
+        <input type="text" name="name" placeholder="YOUR NAME" required>
+        <input type="number" name="guests" placeholder="Number of attendees" min="1" required>
+        <button type="submit">
+          <span>Confirm Attendance</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>SampadAI</p>
+    <p>Financial Technology Platform</p>
+  </footer>
+
+  <script src="/js/rsvp.js"></script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Black and white color palette - Light Mode */
+  --primary-pink: #FFFFFF;
+  --accent-rose: #000000;
+  --lavender: #000000;
+  --sage-green: #000000;
+  --peach: #FFFFFF;
+  --cream: #FFFFFF;
+  --soft-pink: #FAFAFA;
+  --dusty-rose: #333333;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --white: #FFFFFF;
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  background: #FFFFFF;
+  color: var(--text-primary);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dark Mode Styles - Black and white theme */
+[data-theme='dark'] {
+  --primary-pink: #000000;
+  --accent-rose: #FFFFFF;
+  --lavender: #FFFFFF;
+  --sage-green: #FFFFFF;
+  --peach: #000000;
+  --cream: #000000;
+  --soft-pink: #1A1A1A;
+  --dusty-rose: #CCCCCC;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-light: #999999;
+  --white: #1A1A1A;
+  --shadow-soft: rgba(255, 255, 255, 0.1);
+  --shadow-medium: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] body {
+  background: #000000;
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] body::before {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .title {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .tagline {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .coming-soon {
+  color: var(--text-light);
+}
+
+[data-theme='dark'] .description {
+  color: var(--text-secondary);
+}
+
+[data-theme='dark'] .email-input {
+  background: var(--white);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .email-input:focus {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 4px var(--shadow-soft);
+}
+
+[data-theme='dark'] .email-input::placeholder {
+  color: var(--text-light);
+}
+
+[data-theme='dark'] .form-group {
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .form-group:focus-within {
+  border-color: var(--text-primary);
+}
+
+[data-theme='dark'] .join-button {
+  background: var(--text-primary);
+  color: var(--white);
+}
+
+[data-theme='dark'] .join-button:hover {
+  background: var(--dusty-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+[data-theme='dark'] .success-message {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .logo-container {
+  background: transparent;
+}
+
+[data-theme='dark'] .dropdown-toggle,
+[data-theme='dark'] .theme-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme='dark'] .dropdown-toggle:hover,
+[data-theme='dark'] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--text-primary);
+}
+
+[data-theme='dark'] .dropdown-menu {
+  background: rgba(26, 26, 26, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme='dark'] .dropdown-item {
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .dropdown-item.current {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .beta-button {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .beta-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--text-primary);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 680px;
+  padding: 60px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  padding: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 12px var(--shadow-soft));
+}
+
+.logo:hover {
+  transform: scale(1.08) translateY(-2px);
+  filter: drop-shadow(0 8px 20px var(--shadow-medium));
+}
+
+/* Language & Theme Toggle */
+.language-switcher,
+.theme-toggle-container {
+  position: fixed;
+  top: 24px;
+  z-index: 1000;
+  /* Prevent layout shift by ensuring fixed positioning from start */
+  will-change: transform;
+}
+
+.language-switcher {
+  right: 24px;
+}
+.theme-toggle-container {
+  right: 112px;
+}
+
+.theme-toggle,
+.dropdown-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+.dropdown-toggle {
+  gap: 8px;
+}
+
+.theme-toggle:hover,
+.dropdown-toggle:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+.theme-icon {
+  font-size: 20px;
+  line-height: 1;
+  display: block;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--shadow-soft);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  margin: 4px;
+  border-radius: 8px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateX(-2px);
+}
+
+.dropdown-item.current {
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Main Content */
+.coming-soon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-style: italic;
+  max-width: 600px;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.coming-soon {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 520px;
+  line-height: 1.8;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Waitlist Form */
+.waitlist-form {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 8px;
+  animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.form-group {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  background: var(--white);
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow-soft);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group:focus-within {
+  box-shadow: 0 12px 40px var(--shadow-medium);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.email-input {
+  flex: 1;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.email-input::placeholder {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.join-button {
+  padding: 18px 36px;
+  background: var(--text-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.join-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.join-button:hover {
+  background: var(--dusty-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+.join-button:hover::before {
+  left: 100%;
+}
+
+.join-button:active {
+  transform: translateY(0);
+}
+
+/* Success Message */
+.success-message {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+  padding: 20px 32px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  margin-top: 16px;
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px var(--shadow-soft);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Beta Button */
+.beta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 16px 36px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 16px var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.beta-button .ios-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.beta-button:hover .ios-icon {
+  transform: scale(1.1);
+}
+
+.beta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.beta-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+.beta-button:hover::before {
+  left: 100%;
+}
+
+.beta-button:active {
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 24px;
+  }
+
+  .logo {
+    height: 85px;
+  }
+
+  .logo-container {
+    margin-bottom: 40px;
+  }
+
+  .theme-toggle-container {
+    top: 20px;
+    right: 96px;
+  }
+
+  .language-switcher {
+    top: 20px;
+    right: 20px;
+  }
+
+  .theme-toggle,
+  .dropdown-toggle {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+  }
+
+  .coming-soon {
+    font-size: 0.75rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .form-group {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .email-input {
+    padding: 16px 20px;
+  }
+
+  .join-button {
+    width: 100%;
+    padding: 16px 32px;
+  }
+
+  .coming-soon-content {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 20px;
+  }
+
+  .logo {
+    height: 70px;
+  }
+
+  .logo-container {
+    margin-bottom: 32px;
+  }
+
+  .theme-toggle-container {
+    top: 16px;
+    right: 88px;
+  }
+
+  .language-switcher {
+    top: 16px;
+    right: 16px;
+  }
+
+  .theme-toggle,
+  .dropdown-toggle {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+
+  .tagline {
+    font-size: 1.125rem;
+  }
+
+  .coming-soon {
+    font-size: 0.7rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .email-input,
+  .join-button {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+
+  .beta-button {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
