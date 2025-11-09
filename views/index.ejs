@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="<%= language %>">
+<head>
+    <script>
+        // Prevent flash of unstyled content by setting theme before page loads
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <style>
+        /* Prevent layout shift for fixed position elements */
+        .theme-toggle-container,
+        .language-switcher {
+            position: fixed !important;
+            top: 24px !important;
+            z-index: 1000 !important;
+        }
+        .theme-toggle-container {
+            right: 112px !important;
+        }
+        .language-switcher {
+            right: 24px !important;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= messages[language].title %></title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<%= messages[language].seo.description %>">
+    <meta name="keywords" content="<%= messages[language].seo.keywords %>">
+    <meta name="author" content="SampadAI">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="<%= language %>">
+    
+    <!-- Geographic Meta Tags -->
+    <meta name="geo.region" content="<%= messages[language].seo.geoRegion %>">
+    <meta name="geo.placename" content="<%= messages[language].seo.geoPlacename %>">
+    <meta name="geo.position" content="<%= messages[language].seo.geoPosition %>">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sampadai.com<%= messages[language].seo.canonicalUrl %>">
+    <meta property="og:title" content="<%= messages[language].seo.title %>">
+    <meta property="og:description" content="<%= messages[language].seo.description %>">
+    <meta property="og:image" content="https://sampadai.com/assets/images/logo.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="SampadAI">
+    <meta property="og:locale" content="<%= messages[language].seo.locale %>">
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sampadai.com<%= messages[language].seo.canonicalUrl %>">
+    <meta property="twitter:title" content="<%= messages[language].seo.title %>">
+    <meta property="twitter:description" content="<%= messages[language].seo.description %>">
+    <meta property="twitter:image" content="https://sampadai.com/assets/images/logo.png">
+    <meta property="twitter:creator" content="@sampadai">
+    <meta property="twitter:site" content="@sampadai">
+    
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="https://sampadai.com<%= messages[language].seo.canonicalUrl %>">
+    <link rel="alternate" hreflang="en" href="https://sampadai.com/en">
+    <link rel="alternate" hreflang="de" href="https://sampadai.com/de">
+    <link rel="alternate" hreflang="pl" href="https://sampadai.com/pl">
+    <link rel="alternate" hreflang="x-default" href="https://sampadai.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/icons/fevicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="s7OvouWdu0qgI4IivX0Qt596WUjWNRlgupQw1X58MqM" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SampadAI",
+        "description": "<%= messages[language].seo.description %>",
+        "url": "https://sampadai.com",
+        "logo": "https://sampadai.com/assets/images/logo.png",
+        "sameAs": [
+            "https://twitter.com/sampadai",
+            "https://linkedin.com/company/sampadai"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "hello@sampadai.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "<%= messages[language].seo.addressCountry %>",
+            "addressLocality": "<%= messages[language].seo.addressLocality %>"
+        },
+        "foundingDate": "2025",
+        "industry": "Financial Technology"
+    }
+    </script>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#F5E6E8">
+    <meta name="application-name" content="SampadAI">
+    <meta name="apple-mobile-web-app-title" content="SampadAI">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </div>
+
+    <!-- Language Switcher -->
+    <% if (language !== 'en') { %>
+    <div class="language-switcher">
+        <div class="dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown()">
+                <%= language.toUpperCase() %>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="dropdown-menu" id="languageDropdown">
+                <a href="/<%= language %>" class="dropdown-item current">
+                    <%= language.toUpperCase() %>
+                </a>
+                <a href="/en" class="dropdown-item">EN</a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+    
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="/assets/images/logo.png" alt="SampadAI" class="logo">
+        </div>
+        
+        <!-- Main Content -->
+        <div class="coming-soon-content">
+            <h1 class="title"><%= messages[language].title %></h1>
+            <p class="tagline"><%= messages[language].tagline %></p>
+            <h2 class="coming-soon"><%= messages[language].comingSoon %></h2>
+            <p class="description"><%= messages[language].description %></p>
+            
+            <!-- Waitlist Form -->
+            <form class="waitlist-form" action="/waitlist" method="POST">
+                <div class="form-group">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="<%= messages[language].emailPlaceholder %>" 
+                        required 
+                        class="email-input"
+                    >
+                    <button type="submit" class="join-button">
+                        <%= messages[language].joinWaitlist %>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                <%= messages[language].successMessage %>
+            </div>
+
+            <!-- Beta Button -->
+            <a href="https://beta.sampadai.com" class="beta-button">
+                <svg class="ios-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                <span><%= messages[language].tryBetaNow %></span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Theme/Dark Mode functionality
+        function getTheme() {
+            return localStorage.getItem('theme') || 'light';
+        }
+
+        function setTheme(theme) {
+            localStorage.setItem('theme', theme);
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const icon = document.querySelector('.theme-icon');
+            const theme = getTheme();
+            if (icon) {
+                icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = getTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTheme(getTheme());
+        });
+
+        // Language dropdown functionality
+        function toggleDropdown() {
+            document.getElementById('languageDropdown').classList.toggle('show');
+        }
+        
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                const dropdowns = document.getElementsByClassName('dropdown-menu');
+                for (let dropdown of dropdowns) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        
+        // Waitlist form handling
+        document.querySelector('.waitlist-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('input[name="email"]').value;
+            const successMessage = document.getElementById('successMessage');
+            const submitButton = this.querySelector('button[type="submit"]');
+            
+            // Show loading state
+            submitButton.textContent = 'Joining...';
+            submitButton.disabled = true;
+            
+            try {
+                const response = await fetch('/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    this.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    throw new Error(result.message || 'Failed to join waitlist');
+                }
+            } catch (error) {
+                console.error('Waitlist error:', error);
+                submitButton.textContent = '<%= messages[language].joinWaitlist %>';
+                submitButton.disabled = false;
+                alert('Failed to join waitlist. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
