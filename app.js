@@ -123,7 +123,7 @@ const getMessages = () => ({
     joinWaitlist: 'Join Waitlist',
     successMessage:
       "Thank you! You've been added to our waitlist. We'll notify you when we launch.",
-    tryBetaNow: 'Try Beta Now',
+    tryBetaNow: 'Try Beta App Now',
     seo: {
       title:
         'SampadAI - AI-Powered Financial Technology Platform | Fintech Innovation',
@@ -150,7 +150,7 @@ const getMessages = () => ({
     joinWaitlist: 'Warteliste beitreten',
     successMessage:
       'Vielen Dank! Sie wurden zu unserer Warteliste hinzugefügt. Wir benachrichtigen Sie, wenn wir starten.',
-    tryBetaNow: 'Beta jetzt testen',
+    tryBetaNow: 'Beta-App jetzt testen',
     seo: {
       title:
         'SampadAI - KI-gestützte Finanztechnologie-Plattform | Fintech Innovation Deutschland',
@@ -177,7 +177,7 @@ const getMessages = () => ({
     joinWaitlist: 'Dołącz do listy',
     successMessage:
       'Dziękujemy! Zostałeś dodany do naszej listy oczekujących. Powiadomimy Cię, gdy uruchomimy serwis.',
-    tryBetaNow: 'Wypróbuj wersję beta',
+    tryBetaNow: 'Wypróbuj aplikację beta',
     seo: {
       title:
         'SampadAI - Platforma Fintech z Sztuczną Inteligencją | Innowacje Fintech Polska',
