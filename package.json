@@ -1,0 +1,45 @@
+{
+  "name": "sampadai-revamp-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@appletosolutions/reactbits": "^1.0.3",
+    "@chakra-ui/react": "^3.29.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@motionone/types": "^10.17.1",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.4.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "@react-three/rapier": "^2.2.0",
+    "framer-motion": "^12.23.24",
+    "gl-matrix": "^3.4.4",
+    "gsap": "^3.13.0",
+    "matter-js": "^0.20.0",
+    "meshline": "^3.3.1",
+    "next": "^14.2.5",
+    "ogl": "^1.0.11",
+    "postprocessing": "^6.38.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.181.0",
+    "three-stdlib": "^2.36.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
+  }
+}
