@@ -32,6 +32,8 @@ export const LampContainer = ({
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const checkScreenSize = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
