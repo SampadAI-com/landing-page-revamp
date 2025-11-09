@@ -32,15 +32,26 @@ export const LampContainer = ({
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined') {
+      setIsDesktop(true); // Default to desktop on server
+      return;
+    }
     
     const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth >= 768);
+      try {
+        setIsDesktop(window.innerWidth >= 768);
+      } catch (error) {
+        setIsDesktop(true); // Fallback to desktop
+      }
     };
     
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', checkScreenSize);
+      }
+    };
   }, []);
 
   return (

@@ -17,6 +17,7 @@ const kredit = localFont({
   src: "./fonts/KreditFront.otf",
   variable: "--font-kredit",
   display: "swap",
+  fallback: ["Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {

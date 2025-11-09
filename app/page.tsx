@@ -6,7 +6,7 @@ export default function Home() {
       {/* Section 1 */}
       <LampContainer>
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white" style={{ fontFamily: 'var(--font-kredit)', fontWeight: 900 }}>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white" style={{ fontFamily: 'var(--font-kredit), Arial, sans-serif', fontWeight: 900 }}>
             Her Money. Her AI.
           </h1>
         </div>
