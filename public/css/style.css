@@ -6,21 +6,21 @@
 }
 
 :root {
-  /* Women-centric color palette - Light Mode */
-  --primary-pink: #F5E6E8;
-  --accent-rose: #D4A5A5;
-  --lavender: #E8D5E3;
-  --sage-green: #C8D5B9;
-  --peach: #F4D1AE;
-  --cream: #F7F3F0;
-  --soft-pink: #F8E8E8;
-  --dusty-rose: #C9A8A8;
-  --text-primary: #2D2D2D;
-  --text-secondary: #6B6B6B;
-  --text-light: #9A9A9A;
+  /* Black and white color palette - Light Mode */
+  --primary-pink: #FFFFFF;
+  --accent-rose: #000000;
+  --lavender: #000000;
+  --sage-green: #000000;
+  --peach: #FFFFFF;
+  --cream: #FFFFFF;
+  --soft-pink: #FAFAFA;
+  --dusty-rose: #333333;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --text-light: #999999;
   --white: #FFFFFF;
-  --shadow-soft: rgba(212, 165, 165, 0.15);
-  --shadow-medium: rgba(212, 165, 165, 0.25);
+  --shadow-soft: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -31,7 +31,7 @@ body {
     'Segoe UI',
     Roboto,
     sans-serif;
-  background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+  background: #FFFFFF;
   color: var(--text-primary);
   line-height: 1.7;
   min-height: 100vh;
@@ -52,39 +52,39 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(232, 213, 227, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(200, 213, 185, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Dark Mode Styles - Soft feminine dark theme */
+/* Dark Mode Styles - Black and white theme */
 [data-theme='dark'] {
-  --primary-pink: #2A1F1F;
-  --accent-rose: #8B6F6F;
-  --lavender: #4A3A45;
-  --sage-green: #3A4030;
-  --peach: #4A3A2A;
-  --cream: #1F1F1F;
-  --soft-pink: #2A1F1F;
-  --dusty-rose: #6B5A5A;
-  --text-primary: #F5E6E8;
-  --text-secondary: #D4A5A5;
-  --text-light: #C9A8A8;
-  --white: #2D2D2D;
-  --shadow-soft: rgba(212, 165, 165, 0.1);
-  --shadow-medium: rgba(212, 165, 165, 0.2);
+  --primary-pink: #000000;
+  --accent-rose: #FFFFFF;
+  --lavender: #FFFFFF;
+  --sage-green: #FFFFFF;
+  --peach: #000000;
+  --cream: #000000;
+  --soft-pink: #1A1A1A;
+  --dusty-rose: #CCCCCC;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-light: #999999;
+  --white: #1A1A1A;
+  --shadow-soft: rgba(255, 255, 255, 0.1);
+  --shadow-medium: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme='dark'] body {
-  background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+  background: #000000;
   color: var(--text-primary);
 }
 
 [data-theme='dark'] body::before {
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(232, 213, 227, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(200, 213, 185, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
 }
 
 [data-theme='dark'] .title {
@@ -105,12 +105,12 @@ body::before {
 
 [data-theme='dark'] .email-input {
   background: var(--white);
-  border-color: var(--dusty-rose);
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--text-primary);
 }
 
 [data-theme='dark'] .email-input:focus {
-  border-color: var(--accent-rose);
+  border-color: var(--text-primary);
   box-shadow: 0 0 0 4px var(--shadow-soft);
 }
 
@@ -118,21 +118,29 @@ body::before {
   color: var(--text-light);
 }
 
+[data-theme='dark'] .form-group {
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .form-group:focus-within {
+  border-color: var(--text-primary);
+}
+
 [data-theme='dark'] .join-button {
-  background: linear-gradient(135deg, var(--accent-rose) 0%, var(--lavender) 100%);
+  background: var(--text-primary);
   color: var(--white);
 }
 
 [data-theme='dark'] .join-button:hover {
-  background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--accent-rose) 100%);
+  background: var(--dusty-rose);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--shadow-medium);
 }
 
 [data-theme='dark'] .success-message {
-  background: linear-gradient(135deg, rgba(200, 213, 185, 0.2) 0%, rgba(232, 213, 227, 0.2) 100%);
-  color: var(--sage-green);
-  border-color: var(--sage-green);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .logo-container {
@@ -142,7 +150,7 @@ body::before {
 [data-theme='dark'] .dropdown-toggle,
 [data-theme='dark'] .theme-toggle {
   background: rgba(255, 255, 255, 0.08);
-  border-color: var(--dusty-rose);
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--text-primary);
   backdrop-filter: blur(20px);
 }
@@ -150,12 +158,12 @@ body::before {
 [data-theme='dark'] .dropdown-toggle:hover,
 [data-theme='dark'] .theme-toggle:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: var(--accent-rose);
+  border-color: var(--text-primary);
 }
 
 [data-theme='dark'] .dropdown-menu {
-  background: rgba(45, 45, 45, 0.95);
-  border-color: var(--dusty-rose);
+  background: rgba(26, 26, 26, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
 }
 
@@ -164,22 +172,22 @@ body::before {
 }
 
 [data-theme='dark'] .dropdown-item:hover {
-  background: rgba(212, 165, 165, 0.15);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .dropdown-item.current {
-  background: rgba(212, 165, 165, 0.25);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 [data-theme='dark'] .beta-button {
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.15) 0%, rgba(232, 213, 227, 0.15) 100%);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
-  border: 1px solid var(--dusty-rose);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
 }
 
 [data-theme='dark'] .beta-button:hover {
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.25) 0%, rgba(232, 213, 227, 0.25) 100%);
-  border-color: var(--accent-rose);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--text-primary);
 }
 
 /* Container */
@@ -245,8 +253,8 @@ body::before {
 
 .theme-toggle,
 .dropdown-toggle {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1.5px solid var(--accent-rose);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 10px 16px;
   font-size: 14px;
@@ -274,8 +282,8 @@ body::before {
 
 .theme-toggle:hover,
 .dropdown-toggle:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: var(--dusty-rose);
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--shadow-medium);
 }
@@ -304,7 +312,7 @@ body::before {
   width: 100%;
   margin-top: 8px;
   background: rgba(255, 255, 255, 0.95);
-  border: 1.5px solid var(--accent-rose);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   box-shadow: 0 8px 24px var(--shadow-soft);
   backdrop-filter: blur(20px);
@@ -330,14 +338,14 @@ body::before {
 }
 
 .dropdown-item:hover {
-  background: rgba(212, 165, 165, 0.15);
+  background: rgba(0, 0, 0, 0.05);
   transform: translateX(-2px);
 }
 
 .dropdown-item.current {
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.2) 0%, rgba(232, 213, 227, 0.2) 100%);
+  background: rgba(0, 0, 0, 0.1);
   font-weight: 600;
-  color: var(--accent-rose);
+  color: var(--text-primary);
 }
 
 /* Main Content */
@@ -356,10 +364,6 @@ body::before {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--accent-rose) 0%, var(--lavender) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   animation: fadeInUp 1s ease-out 0.3s both;
 }
 
@@ -410,13 +414,13 @@ body::before {
   padding: 8px;
   border-radius: 20px;
   box-shadow: 0 8px 32px var(--shadow-soft);
-  border: 1.5px solid rgba(212, 165, 165, 0.2);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-group:focus-within {
   box-shadow: 0 12px 40px var(--shadow-medium);
-  border-color: var(--accent-rose);
+  border-color: var(--text-primary);
   transform: translateY(-2px);
 }
 
@@ -440,7 +444,7 @@ body::before {
 
 .join-button {
   padding: 18px 36px;
-  background: linear-gradient(135deg, var(--accent-rose) 0%, var(--lavender) 100%);
+  background: var(--text-primary);
   color: var(--white);
   border: none;
   border-radius: 16px;
@@ -467,7 +471,7 @@ body::before {
 }
 
 .join-button:hover {
-  background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--accent-rose) 100%);
+  background: var(--dusty-rose);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--shadow-medium);
 }
@@ -482,11 +486,11 @@ body::before {
 
 /* Success Message */
 .success-message {
-  background: linear-gradient(135deg, rgba(200, 213, 185, 0.3) 0%, rgba(232, 213, 227, 0.3) 100%);
-  color: var(--sage-green);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
   padding: 20px 32px;
   border-radius: 16px;
-  border: 1.5px solid var(--sage-green);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   font-weight: 500;
   margin-top: 16px;
   animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -514,8 +518,8 @@ body::before {
   gap: 10px;
   margin-top: 8px;
   padding: 16px 36px;
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.1) 0%, rgba(232, 213, 227, 0.1) 100%);
-  border: 1.5px solid var(--accent-rose);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   font-size: 16px;
   font-weight: 500;
@@ -552,15 +556,15 @@ body::before {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 165, 165, 0.2),
+    rgba(0, 0, 0, 0.1),
     transparent
   );
   transition: left 0.5s;
 }
 
 .beta-button:hover {
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.2) 0%, rgba(232, 213, 227, 0.2) 100%);
-  border-color: var(--dusty-rose);
+  background: rgba(0, 0, 0, 0.08);
+  border-color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--shadow-medium);
 }
