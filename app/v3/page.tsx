@@ -115,65 +115,23 @@ export default function V3Page() {
           <h1 
             style={{
               fontFamily: 'var(--font-lora), serif',
-              fontSize: 'clamp(64px, 12vw, 140px)',
+              fontSize: 'clamp(48px, 8vw, 120px)',
               color: textColor,
               fontWeight: '700',
-              letterSpacing: '4px',
+              letterSpacing: '3px',
               lineHeight: '1.1',
               textTransform: 'uppercase',
               fontStretch: 'condensed',
               position: 'relative',
+              whiteSpace: 'nowrap',
+              width: '100%',
+              overflow: 'hidden',
+              textAlign: 'center',
             }}
           >
-            SAMP<span style={{ 
-              position: 'relative',
-              display: 'inline-block',
-            }}>
+            SAMPAD<span style={{ position: 'relative' }}>
               A
-              <span 
-                style={{
-                  position: 'absolute',
-                  bottom: '-4px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '140%',
-                  height: '3px',
-                  backgroundColor: textColor,
-                  borderRadius: '2px',
-                }}
-              />
-            </span>D<span style={{ position: 'relative' }}>
-              A
-              <span 
-                style={{
-                  position: 'absolute',
-                  bottom: '-4px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '140%',
-                  height: '3px',
-                  backgroundColor: textColor,
-                  borderRadius: '2px',
-                }}
-              />
-            </span><span style={{ 
-              position: 'relative',
-              display: 'inline-block',
-            }}>
-              I
-              <span 
-                style={{
-                  position: 'absolute',
-                  top: '-8px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '6px',
-                  height: '6px',
-                  backgroundColor: textColor,
-                  borderRadius: '50%',
-                }}
-              />
-            </span>
+            </span>I
           </h1>
 
           {/* Big dreams shouldn't be scary. They should be planned. */}
