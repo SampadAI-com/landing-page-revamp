@@ -529,7 +529,8 @@ export default function V5Page() {
             boxShadow: '0 4px 20px rgba(232, 160, 191, 0.3)',
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
+            justifyContent: 'center',
+            gap: '8px',
             width: 'fit-content'
           }}
           onMouseEnter={(e) => {
@@ -541,10 +542,25 @@ export default function V5Page() {
             e.currentTarget.style.boxShadow = '0 4px 20px rgba(232, 160, 191, 0.3)';
           }}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.96-3.24-1.44-1.32-.52-2.6-1.03-3.95-1.32-2.37-.5-4.4-1.5-6.1-3.28C.93 13.82 0 11.85 0 9.62c0-2.03.67-3.9 2.01-5.61C3.34 2.22 5.18 1.21 7.38.57c.57-.16 1.15-.24 1.72-.24 1.11 0 2.15.23 3.12.7.39.19.7.45 1.01.73.28.25.54.52.88.73.3.19.6.34.95.44.35.1.7.15 1.05.15.35 0 .7-.05 1.05-.15.35-.1.65-.25.95-.44.34-.21.6-.48.88-.73.31-.28.62-.54 1.01-.73.97-.47 2.01-.7 3.12-.7.57 0 1.15.08 1.72.24 2.2.64 4.04 1.65 5.37 3.44C23.33 5.72 24 7.59 24 9.62c0 2.23-.93 4.2-2.68 5.68-1.7 1.78-3.73 2.78-6.1 3.28-1.35.29-2.63.8-3.95 1.32-1.16.48-2.15.94-3.24 1.44-1.03.48-2.1.55-3.08-.4z"/>
-            </svg>
-            Try Beta App Now
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg"
+              alt="Apple"
+              style={{
+                width: isMobile ? '16px' : '14px',
+                height: isMobile ? '20px' : '17px',
+                display: 'block',
+                flexShrink: 0,
+                objectFit: 'contain',
+                imageRendering: '-webkit-optimize-contrast',
+                imageRendering: 'crisp-edges',
+                imageRendering: 'pixelated',
+                filter: 'brightness(0) saturate(100%) invert(15%) sepia(8%) saturate(1014%) hue-rotate(314deg) brightness(95%) contrast(88%)',
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+                WebkitFontSmoothing: 'antialiased'
+              }}
+            />
+            <span>Try Beta App Now</span>
           </button>
         </div>
       </section>
