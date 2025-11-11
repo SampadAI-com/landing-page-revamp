@@ -5,9 +5,7 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /package.json
 Disallow: /package-lock.json
-Disallow: /app.js
 Disallow: /README.md
-Disallow: /vercel.json
 
 # Sitemap location
 Sitemap: https://sampadai.com/sitemap.xml
